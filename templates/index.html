@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Result Extractor</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Nikhil Daiya">
+        <meta name="description" content="Extract course-specific student results from Lachoo Memorial College of Science & Technology quickly and easily">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>RESULT EXTRACTOR</h1>
+            <form action="/response" method="POST">
+                <select name="course" required>
+                    <option value="" selected disabled>SELECT YOUR COURSE</option>
+                    <option value="BCA Semester I, Examination 2025, Winter (Main/ATKT)">BCA Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BCA Semester II, Examination 2026, Summer (Main/ATKT)">BCA Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BCA Semester III, Examination 2025, Winter (Main/ATKT)">BCA Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BCA Semester IV, Examination 2026, Summer (Main/ATKT)">BCA Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BCA Semester V, Examination 2025, Winter (Main/ATKT)">BCA Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BCA Semester VI, Examination 2026, Summer (Main/ATKT)">BCA Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="MCA Semester I, Examination 2025, Winter (Main/ATKT)">MCA Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="MCA Semester II, Examination 2026, Summer (Main/ATKT)">MCA Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="MCA Semester III, Examination 2025, Winter (Main/ATKT)">MCA Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="MCA Semester IV, Examination 2026, Summer (Main/ATKT)">MCA Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BBA Semester I, Examination 2025, Winter (Main/ATKT)">BBA Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BBA Semester II, Examination 2026, Summer (Main/ATKT)">BBA Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BBA Semester III, Examination 2025, Winter (Main/ATKT)">BBA Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BBA Semester IV, Examination 2026, Summer (Main/ATKT)">BBA Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BBA Semester V, Examination 2025, Winter (Main/ATKT)">BBA Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BBA Semester VI, Examination 2026, Summer (Main/ATKT)">BBA Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Com. Semester I, Examination 2025, Winter (Main/ATKT)">B.Com. Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Com. Semester II, Examination 2026, Summer (Main/ATKT)">B.Com. Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Com. Semester III, Examination 2025, Winter (Main/ATKT)">B.Com. Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Com. Semester IV, Examination 2026, Summer (Main/ATKT)">B.Com. Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Com. Semester V, Examination 2025, Winter (Main/ATKT)">B.Com. Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Com. Semester VI, Examination 2026, Summer (Main/ATKT)">B.Com. Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="MBA Semester I, Examination 2025, Winter (Main/ATKT)">MBA Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="MBA Semester II, Examination 2026, Summer (Main/ATKT)">MBA Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="MBA Semester III, Examination 2025, Winter (Main/ATKT)">MBA Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="MBA Semester IV, Examination 2026, Summer (Main/ATKT)">MBA Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm Semester I, Examination 2025, Winter (Main/ATKT)">B Pharm Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm Semester II, Examination 2026, Summer (Main/ATKT)">B Pharm Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm Semester III, Examination 2025, Winter (Main/ATKT)">B Pharm Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm Semester IV, Examination 2026, Summer (Main/ATKT)">B Pharm Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm Semester V, Examination 2025, Winter (Main/ATKT)">B Pharm Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm Semester VI, Examination 2026, Summer (Main/ATKT)">B Pharm Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm Semester VII, Examination 2025, Winter (Main/ATKT)">B Pharm Semester VII, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm Semester VIII, Examination 2026, Summer (Main/ATKT)">B Pharm Semester VIII, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm L Semester I, Examination 2025, Winter (Main/ATKT)">B Pharm L Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm L Semester II, Examination 2026, Summer (Main/ATKT)">B Pharm L Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm L Semester III, Examination 2025, Winter (Main/ATKT)">B Pharm L Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm L Semester IV, Examination 2026, Summer (Main/ATKT)">B Pharm L Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm L Semester V, Examination 2025, Winter (Main/ATKT)">B Pharm L Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm L Semester VI, Examination 2026, Summer (Main/ATKT)">B Pharm L Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B Pharm L Semester VII, Examination 2025, Winter (Main/ATKT)">B Pharm L Semester VII, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B Pharm L Semester VIII, Examination 2026, Summer (Main/ATKT)">B Pharm L Semester VIII, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BPT Semester I, Examination 2025, Winter (Main/ATKT)">BPT Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BPT Semester II, Examination 2026, Summer (Main/ATKT)">BPT Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BPT Semester III, Examination 2025, Winter (Main/ATKT)">BPT Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BPT Semester IV, Examination 2026, Summer (Main/ATKT)">BPT Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BPT Semester V, Examination 2025, Winter (Main/ATKT)">BPT Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BPT Semester VI, Examination 2026, Summer (Main/ATKT)">BPT Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="BPT Semester VII, Examination 2025, Winter (Main/ATKT)">BPT Semester VII, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="BPT Semester VIII, Examination 2026, Summer (Main/ATKT)">BPT Semester VIII, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="D Pharm Year I, Examination 2026, Summer (Main/ATKT)">D Pharm Year I, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="D Pharm Year II, Examination 2026, Summer (Main/ATKT)">D Pharm Year II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester I, Examination 2025, Winter (Main/ATKT)">B.Sc. CBZ Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester II, Examination 2026, Summer (Main/ATKT)">B.Sc. CBZ Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester III, Examination 2025, Winter (Main/ATKT)">B.Sc. CBZ Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester IV, Examination 2026, Summer (Main/ATKT)">B.Sc. CBZ Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester V, Examination 2025, Winter (Main/ATKT)">B.Sc. CBZ Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CBZ Semester VI, Examination 2026, Summer (Main/ATKT)">B.Sc. CBZ Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester I, Examination 2025, Winter (Main/ATKT)">B.Sc. CZBT Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester II, Examination 2026, Summer (Main/ATKT)">B.Sc. CZBT Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester III, Examination 2025, Winter (Main/ATKT)">B.Sc. CZBT Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester IV, Examination 2026, Summer (Main/ATKT)">B.Sc. CZBT Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester V, Examination 2025, Winter (Main/ATKT)">B.Sc. CZBT Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. CZBT Semester VI, Examination 2026, Summer (Main/ATKT)">B.Sc. CZBT Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester I, Examination 2025, Winter (Main/ATKT)">B.Sc. PCM Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester II, Examination 2026, Summer (Main/ATKT)">B.Sc. PCM Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester III, Examination 2025, Winter (Main/ATKT)">B.Sc. PCM Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester IV, Examination 2026, Summer (Main/ATKT)">B.Sc. PCM Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester V, Examination 2025, Winter (Main/ATKT)">B.Sc. PCM Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PCM Semester VI, Examination 2026, Summer (Main/ATKT)">B.Sc. PCM Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester I, Examination 2025, Winter (Main/ATKT)">B.Sc. PMCS Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester II, Examination 2026, Summer (Main/ATKT)">B.Sc. PMCS Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester III, Examination 2025, Winter (Main/ATKT)">B.Sc. PMCS Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester IV, Examination 2026, Summer (Main/ATKT)">B.Sc. PMCS Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester V, Examination 2025, Winter (Main/ATKT)">B.Sc. PMCS Semester V, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="B.Sc. PMCS Semester VI, Examination 2026, Summer (Main/ATKT)">B.Sc. PMCS Semester VI, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Bot) Semester I, Examination 2025, Winter (Main/ATKT)">M.Sc.(Bot) Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Bot) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(Bot) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Bot) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(Bot) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Bot) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(Bot) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(BT) Semester I, Examination 2025, Winter (Main/ATKT)">M.Sc.(BT) Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(BT) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(BT) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(BT) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(BT) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(BT) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(BT) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Chem) Semester I, Examination 2025, Winter (Main/ATKT)">M.Sc.(Chem) Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Chem) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(Chem) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Chem) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(Chem) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Chem) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(Chem) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Phy) Semester I, Examination 2025, Winter (Main/ATKT)">M.Sc.(Phy) Semester I, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Phy) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(Phy) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Phy) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(Phy) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Phy) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(Phy) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Zoo) Semester I , Examination 2025, Winter (Main/ATKT)">M.Sc.(Zoo) Semester I , Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Zoo) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(Zoo) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Zoo) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(Zoo) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Zoo) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(Zoo) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Mathematics) Semester I , Examination 2025, Winter (Main/ATKT)">M.Sc.(Mathematics) Semester I , Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Mathematics) Semester II, Examination 2026, Summer (Main/ATKT)">M.Sc.(Mathematics) Semester II, Examination 2026, Summer (Main/ATKT)</option>
+                    <option value="M.Sc.(Mathematics) Semester III, Examination 2025, Winter (Main/ATKT)">M.Sc.(Mathematics) Semester III, Examination 2025, Winter (Main/ATKT)</option>
+                    <option value="M.Sc.(Mathematics) Semester IV, Examination 2026, Summer (Main/ATKT)">M.Sc.(Mathematics) Semester IV, Examination 2026, Summer (Main/ATKT)</option>
+                </select>
+                <button type="submit">Extract</button>
+            </form>
+        </main>
+    </body>
+</html>

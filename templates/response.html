@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Result Extractor</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Nikhil Daiya">
+        <meta name="description" content="View the extracted results, statistics, and summary for your selected course from Lachoo Memorial College of Science & Technology">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static' , filename = 'images/favicon.ico')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename = 'styles/response.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Extractor Response</h1>
+            <h2>{{ selected_course }}</h2>
+            <div class="container">
+                <table>
+                    <tr>
+                        <th colspan="2">Timing Details</th>
+                    </tr>
+                    <tr>
+                        <th>Scrap Date</th>
+                        <td>{{ scrap_date_str }}</td>
+                    </tr>
+                    <tr>
+                        <th>Start Time</th>
+                        <td>{{ scrap_start_str }}</td>
+                    </tr>
+                    <tr>
+                        <th>End Time</th>
+                        <td>{{ scrap_end_str }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Duration</th>
+                        <td>{{ scrap_duration_str }}</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th colspan="2">File Details</th>
+                    </tr>
+                    <tr>
+                        <th>JSON File</th>
+                        <td>
+                            {% if is_json_created %}
+                                Created Successfully
+                            {% else %}
+                                Not Created!
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>PKL File</th>
+                        <td>
+                            {% if is_pkl_created %}
+                                Created Successfully
+                            {% else %}
+                                Not Created!
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>LOG File</th>
+                        <td>
+                            {% if is_log_created %}
+                                Created Successfully
+                            {% else %}
+                                Not Created!
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Success Rate</th>
+                        <td>{{ '%.2f'|format(success_rate) }}%</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th colspan="2">Statistics Details</th>
+                    </tr>
+                    <tr>
+                        <th>Attempted</th>
+                        <td>{{ total_attempted }}</td>
+                    </tr>
+                    <tr>
+                        <th>Fetched</th>
+                        <td>{{ total_fetched }}</td>
+                    </tr>
+                    <tr>
+                        <th>Not Found</th>
+                        <td>{{ total_not_found }}</td>
+                    </tr>
+                    <tr>
+                        <th>Wrong Captcha</th>
+                        <td>{{ total_wrong_captcha }}</td>
+                    </tr>
+                </table>
+            </div>
+            {% for student in results %}
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Roll No.</th>
+                            <td colspan="7">{{ student.roll_no }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td colspan="7">{{ student.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Course</th>
+                            <td colspan="7">{{ student.course }}</td>
+                        </tr>
+                        <tr>
+                            <th>Subject Code</th>
+                            <th>CIA MAX</th>
+                            <th>CIA OBT</th>
+                            <th>ESE MAX</th>
+                            <th>ESE OBT</th>
+                            <th>Total MAX</th>
+                            <th>Total MIN</th>
+                            <th>Total OBT</th>
+                        </tr>
+                        {% for code, detail in student.subjects.items() %}
+                            <tr>
+                                <th>{{ code }}</th>
+                                <td>{{ detail.CIA_MAX }}</td>
+                                <td>{{ detail.CIA_OBT }}</td>
+                                <td>{{ detail.ESE_MAX }}</td>
+                                <td>{{ detail.ESE_OBT }}</td>
+                                <td>{{ detail.TOTAL_MAX }}</td>
+                                <td>{{ detail.TOTAL_MIN }}</td>
+                                <td>{{ detail.TOTAL_OBT }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <th>Grand Total</th>
+                            <td></td><td></td><td></td><td></td>
+                            <td>{{ student.grand_total.TOTAL_MAX }}</td>
+                            <td>{{ student.grand_total.TOTAL_MIN }}</td>
+                            <td>{{ student.grand_total.TOTAL_OBT }}</td>
+                        </tr>
+                        <tr>
+                            <th>Result</th>
+                            <td colspan="7">{{ student.result }}</td>
+                        </tr>
+                        <tr>
+                            <th>Percentage</th>
+                            <td colspan="7">{{ '%.2f'|format(student.percentage) }}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+        </main>
+    </body>
+</html>
