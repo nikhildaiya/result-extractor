@@ -1,11 +1,11 @@
-📊 Result Extractor (Data Collection & Storage Engine)
+# Result Extractor (Data Collection & Storage Engine)
 
 An internal web scraping system designed to fetch, structure, and persist college examination result data from the official result portal.
 This project is used only by the developer to scrape results once per examination and store them in reusable formats for further analysis and public presentation.
 
 <hr>
 
-📌 Project Purpose
+Project Purpose
 
 The official college result website provides:
 
@@ -27,7 +27,7 @@ This project solves that limitation by acting as a data ingestion layer, respons
 
 <hr>
 
-🧠 Key Design Philosophy
+Key Design Philosophy
 
 * Scrape once, use many times
 
@@ -41,7 +41,7 @@ This project solves that limitation by acting as a data ingestion layer, respons
  
 <hr>
 
-🚀 Features
+Features
 
 * Single internal UI to select course and start scraping
 
@@ -95,7 +95,7 @@ This project solves that limitation by acting as a data ingestion layer, respons
 
 <hr>
 
-🛠 Tech Stack
+Tech Stack
 
 * Language: Python
 
@@ -113,7 +113,7 @@ This project solves that limitation by acting as a data ingestion layer, respons
 
 <hr>
 
-⚙️ How It Works (Scraping Workflow)
+How It Works (Scraping Workflow)
 
 1. Developer selects a course from the internal UI.
 
@@ -159,7 +159,7 @@ This project solves that limitation by acting as a data ingestion layer, respons
 
 <hr>
 
-📁 Project Structure
+Project Structure
 
 ```
 result-extractor/
@@ -186,7 +186,7 @@ result-extractor/
 
 <hr>
 
-🧪 Installation & Setup
+Installation & Setup
 
 1️⃣ Clone Repository
 
@@ -229,7 +229,7 @@ http://127.0.0.1:5000
 
 <hr>
 
-📦 Output Files
+Output Files
 
 For each scraping session, the project generates:
 
@@ -249,7 +249,7 @@ All files are stored course-wise inside the results/ directory.
 
 <hr>
 
-📊 Scraping Summary Metrics
+Scraping Summary Metrics
 
 Displayed at the end of each run:
 
@@ -269,7 +269,7 @@ Displayed at the end of each run:
 
 <hr>
 
-🔮 Future Enhancements
+Future Enhancements
 
 * Headless scraping mode with fallback
 
@@ -283,7 +283,7 @@ Displayed at the end of each run:
 
 <hr>
 
-⚠️ Disclaimer
+Disclaimer
 
 This project is developed strictly for educational, research, and personal use to understand:
 
@@ -297,7 +297,7 @@ This project is developed strictly for educational, research, and personal use t
 
 <hr>
 
-👨‍💻 Author
+Author
 
 Nikhil Daiya
 
