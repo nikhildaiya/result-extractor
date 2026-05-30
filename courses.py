@@ -202,4 +202,8 @@ COURSE_INFO = {
     "M.Sc.(Mathematics) Semester II, Examination 2026, Summer (Main/ATKT)": {"rno_start": 251306001, "rno_end": 251306280},
     "M.Sc.(Mathematics) Semester III, Examination 2025, Winter (Main/ATKT)": {"rno_start": 241306001, "rno_end": 241306280},
     "M.Sc.(Mathematics) Semester IV, Examination 2026, Summer (Main/ATKT)": {"rno_start": 241306001, "rno_end": 241306280},
+    "B.Tech(CS) Semester I, Examination 2025, Winter (Main/ATKT)": {"rno_start": 256501001, "rno_end": 256501280},
+    "B.Tech(CS) Semester II, Examination 2026, Summer (Main/ATKT)": {"rno_start": 256501001, "rno_end": 256501280},
+    "B.Tech(AI) Semester I, Examination 2025, Winter (Main/ATKT)": {"rno_start": 256502001, "rno_end": 256502280},
+    "B.Tech(AI) Semester II, Examination 2026, Summer (Main/ATKT)": {"rno_start": 256502001, "rno_end": 256502280},
 }
